@@ -62,7 +62,7 @@ const InputWithModal = ({
     if (isOpenModal && Icons) {
       modalInput.current.focus();
     }
-  }, [isOpenModal]);
+  }, [Icons, isOpenModal]);
 
   return (
     <InputWrapper>
@@ -103,16 +103,15 @@ const InputWithModal = ({
             type="text"
             value={value}
             onChange={e => {
-              if(Icons) {
+              if (Icons) {
                 setOpenModal(true);
-
               }
+              changeValue(e.target.value);
               // eslint-disable-next-line no-unused-expressions
               setStateProperty(
                 secondProperty ? secondProperty : property,
-                value
+                e.target.value
               );
-              changeValue(e.target.value);
             }}
           />
           {Icons ? (

@@ -13,12 +13,8 @@ class App extends Component {
   };
 
   onSetStateProperty = (property, value) => {
-    console.log("SetStateProp", property, value);
-    console.log("ThisState", property, `value: ${[property]}`)
     this.setState(() => ({ [property]: value }));
-  }
-
-  onInputChange = e => this.setState(() => ({[e.target.name]: e.target.value}));
+  };
 
   render() {
     return (
@@ -47,7 +43,6 @@ class App extends Component {
           />
           <InputWithModal
             setStateProperty={this.onSetStateProperty}
-            onInputChange={this.onInputChange}
             label="Second Email"
             property="secondEmail"
           />
